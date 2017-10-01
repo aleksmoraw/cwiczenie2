@@ -45,7 +45,7 @@ public class UserConsol {
                         System.out.println(e.getCode() + " - " + e.getName());
                     }
                     System.out.println("\n Podaj kwote, którą chcesz przeliczyć");
-                    amount = scanner.nextDouble();
+                    amount = Double.parseDouble(scanner.nextLine());
                     System.out.println("\n Wybierz walute, którą chcesz otrzymać (np.USD): ");
                     chosenCurrency = scanner.nextLine();
                     CurrencyCalculator calc = new CurrencyCalculator(baseCurrency, filtrList(), amount);
