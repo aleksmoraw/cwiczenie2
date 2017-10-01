@@ -73,10 +73,7 @@ public class JSONReader {
 
 
 
-//        System.out.println("Waluta podstawowa: " + baseCurrency);
-//        System.out.println("Inne waluty: " + targetCurrencyList);
-//        CurrencyCalculator calc = new CurrencyCalculator(baseCurr, targetCurrencyList);
-//        System.out.println("Przeliczona wartość w wybranej walucie to " + calc.convertCurrency());
+//
 
 
     }
