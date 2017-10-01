@@ -29,4 +29,13 @@ public class BaseCurrency {
     public void setBaseValue(Double baseValue) {
         this.baseValue = baseValue;
     }
+
+    @Override
+    public String toString() {
+        return " Kod='" + baseCode + '\'' +
+                ", Nazwa='" + baseName + '\'' +
+                ", Wartość=" + baseValue +
+                '}';
+    }
 }
+

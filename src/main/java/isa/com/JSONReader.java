@@ -1,25 +1,33 @@
 package isa.com;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 
 public class JSONReader {
 
-    public static void main(String[] args) throws FileNotFoundException, JSONException {
+    private String pathFile;
 
+    public String getPathFile() {
+        return pathFile;
+    }
+
+    public void setPathFile(String pathFile) {
+        this.pathFile = pathFile;
+    }
+
+    public JSONObject fileReader() {
+        UserConsol userConsol = new UserConsol();
         String jsonData = "";
         BufferedReader br = null;
         try {
             String line;
-            br = new BufferedReader(new FileReader("/home/ola/IdeaProjects/currencies.json"));
+            br = new BufferedReader(new FileReader(pathFile)); //"/home/ola/IdeaProjects/currencies.json"
             while ((line = br.readLine()) != null) {
                 jsonData += line + "\n";
             }
@@ -33,14 +41,22 @@ public class JSONReader {
                 ex.printStackTrace();
             }
         }
-
-
         JSONObject obj = new JSONObject(jsonData);
-        JSONObject baseCurrency = obj.getJSONObject("baseCurrency");
-        BaseCurrency baseCurr = new BaseCurrency();
-        baseCurr.setBaseCode(baseCurrency.getString("code"));
-        baseCurr.setBaseName(baseCurrency.getString("name"));
-        baseCurr.setBaseValue(baseCurrency.getDouble("value"));
+        return obj;
+    }
+
+    public BaseCurrency setBaseCurrencyValues(JSONObject obj) {
+
+        JSONObject baseCurr = obj.getJSONObject("baseCurrency");
+        BaseCurrency baseCurrency = new BaseCurrency();
+        baseCurrency.setBaseCode(baseCurr.getString("code"));
+        baseCurrency.setBaseName(baseCurr.getString("name"));
+        baseCurrency.setBaseValue(baseCurr.getDouble("value"));
+        return baseCurrency;
+    }
+
+    public ArrayList<TargetCurrency> setTargetCurrencyValues(JSONObject obj) {
+
         JSONArray array = obj.getJSONArray("currencies");
         ArrayList<TargetCurrency> targetCurrencyList = new ArrayList<>();
 
@@ -51,12 +67,23 @@ public class JSONReader {
             targetCurrency.setValue(array.getJSONObject(i).getDouble("value"));
             targetCurrencyList.add(targetCurrency);
         }
-
-
-
-        System.out.println("Waluta podstawowa: " + baseCurrency);
-        System.out.println("Inne waluty: " + targetCurrencyList);
-        CurrencyCalculator calc = new CurrencyCalculator(baseCurr, targetCurrencyList);
-        System.out.println("Przeliczona wartość w wybranej walucie to " + calc.convertCurrency());
+        return targetCurrencyList;
     }
-}
+
+
+
+
+
+//        System.out.println("Waluta podstawowa: " + baseCurrency);
+//        System.out.println("Inne waluty: " + targetCurrencyList);
+//        CurrencyCalculator calc = new CurrencyCalculator(baseCurr, targetCurrencyList);
+//        System.out.println("Przeliczona wartość w wybranej walucie to " + calc.convertCurrency());
+
+
+    }
+
+
+
+
+
+

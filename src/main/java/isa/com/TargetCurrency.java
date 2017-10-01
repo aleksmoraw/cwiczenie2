@@ -32,10 +32,9 @@ public class TargetCurrency {
 
       @Override
       public String toString() {
-            return "TargetCurrency{" +
-                    "code='" + code + '\'' +
-                    ", name='" + name + '\'' +
-                    ", value=" + value +
+            return "Kod='" + code + '\'' +
+                    ", Nazwa='" + name + '\'' +
+                    ", Wartość=" + value +
                     '}';
 
       }
