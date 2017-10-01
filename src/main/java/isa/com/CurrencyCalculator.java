@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public class CurrencyCalculator {
 
-    private Double amount = 100.00;
+    private Double amount;
     private Double targetAmount;
     private BaseCurrency baseCurrency;
     private ArrayList<TargetCurrency> targetCurrencyList;
 
-    public CurrencyCalculator(BaseCurrency baseCurrency, ArrayList<TargetCurrency> targetCurrencyList) {
+    public CurrencyCalculator(BaseCurrency baseCurrency, ArrayList<TargetCurrency> targetCurrencyList, Double amount) {
+        this.amount = amount;
         this.baseCurrency = baseCurrency;
         this.targetCurrencyList = targetCurrencyList;
     }
