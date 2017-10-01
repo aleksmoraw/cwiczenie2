@@ -22,7 +22,6 @@ public class JSONReader {
     }
 
     public JSONObject fileReader() {
-        UserConsol userConsol = new UserConsol();
         String jsonData = "";
         BufferedReader br = null;
         try {

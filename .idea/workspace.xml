@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74dfc4b0-994e-4bd0-ac3f-2bec567f65e1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/isa/com/BaseCurrency.class" afterPath="$PROJECT_DIR$/target/classes/isa/com/BaseCurrency.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/isa/com/JSONReader.class" afterPath="$PROJECT_DIR$/target/classes/isa/com/JSONReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/isa/com/TargetCurrency.class" afterPath="$PROJECT_DIR$/target/classes/isa/com/TargetCurrency.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/isa/com/BaseCurrency.java" afterPath="$PROJECT_DIR$/src/main/java/isa/com/BaseCurrency.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/isa/com/JSONReader.java" afterPath="$PROJECT_DIR$/src/main/java/isa/com/JSONReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/isa/com/Main.java" afterPath="$PROJECT_DIR$/src/main/java/isa/com/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/isa/com/TargetCurrency.java" afterPath="$PROJECT_DIR$/src/main/java/isa/com/TargetCurrency.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/isa/com/UserConsol.java" afterPath="$PROJECT_DIR$/src/main/java/isa/com/UserConsol.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JSONReader.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JSONReader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/isa/com/JSONReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-750">
-              <caret line="29" column="104" lean-forward="false" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="104" />
+            <state relative-caret-position="-532">
+              <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#279#280#0" expanded="true" />
@@ -49,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TargetCurrency.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TargetCurrency.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/isa/com/TargetCurrency.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="466">
               <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
               <folding>
                 <element signature="e#162#163#0" expanded="true" />
@@ -122,10 +114,10 @@
         <option value="$PROJECT_DIR$/src/main/java/UserConsol.java" />
         <option value="$PROJECT_DIR$/src/main/java/isa/com/CurrencyCalculator.java" />
         <option value="$PROJECT_DIR$/src/main/java/isa/com/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/isa/com/JSONReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/isa/com/UserConsol.java" />
         <option value="$PROJECT_DIR$/src/main/java/isa/com/TargetCurrency.java" />
         <option value="$PROJECT_DIR$/src/main/java/isa/com/BaseCurrency.java" />
+        <option value="$PROJECT_DIR$/src/main/java/isa/com/JSONReader.java" />
       </list>
     </option>
   </component>
@@ -381,12 +373,12 @@
       <updated>1506766294593</updated>
       <workItem from="1506766301720" duration="14426000" />
       <workItem from="1506867657681" duration="695000" />
-      <workItem from="1506868382703" duration="12554000" />
+      <workItem from="1506868382703" duration="12670000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27675000" />
+    <option name="totallyTimeSpent" value="27791000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="29" y="44" width="1279" height="708" extended-state="0" />
@@ -583,17 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/isa/com/TargetCurrency.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
-          <folding>
-            <element signature="e#162#163#0" expanded="true" />
-            <element signature="e#195#196#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/isa/com/BaseCurrency.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -607,14 +588,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/isa/com/JSONReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-750">
-          <caret line="29" column="104" lean-forward="false" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="104" />
+        <state relative-caret-position="-532">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#279#280#0" expanded="true" />
             <element signature="e#310#311#0" expanded="true" />
             <element signature="e#358#359#0" expanded="true" />
             <element signature="e#398#399#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/isa/com/TargetCurrency.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+          <folding>
+            <element signature="e#162#163#0" expanded="true" />
+            <element signature="e#195#196#0" expanded="true" />
           </folding>
         </state>
       </provider>
