@@ -15,10 +15,8 @@ public class CurrencyCalculator {
         this.targetCurrencyList = targetCurrencyList;
     }
 
-    public Double convertCurrency(){
-
-        targetAmount = baseCurrency.getBaseValue()*amount*targetCurrencyList.get(0).getValue();
+    public Double convertCurrency() {
+        targetAmount = baseCurrency.getBaseValue() * amount * targetCurrencyList.get(0).getValue();
         return targetAmount;
     }
-
 }

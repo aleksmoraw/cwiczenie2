@@ -6,16 +6,8 @@ public class BaseCurrency {
     private String baseName;
     private Double baseValue;
 
-    public String getBaseCode() {
-        return baseCode;
-    }
-
     public void setBaseCode(String baseCode) {
         this.baseCode = baseCode;
-    }
-
-    public String getBaseName() {
-        return baseName;
     }
 
     public void setBaseName(String baseName) {
@@ -38,4 +30,3 @@ public class BaseCurrency {
                 '}';
     }
 }
-

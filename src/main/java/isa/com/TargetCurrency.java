@@ -2,41 +2,39 @@ package isa.com;
 
 public class TargetCurrency {
 
-      private String code;
-      private String name;
-      private Double value;
+    private String code;
+    private String name;
+    private Double value;
 
-      public String getCode() {
-            return code;
-      }
+    public String getCode() {
+        return code;
+    }
 
-      public void setCode(String code) {
-            this.code = code;
-      }
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-      public String getName() {
-            return name;
-      }
+    public String getName() {
+        return name;
+    }
 
-      public void setName(String name) {
-            this.name = name;
-      }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-      public Double getValue() {
-            return value;
-      }
+    public Double getValue() {
+        return value;
+    }
 
-      public void setValue(Double value) {
-            this.value = value;
-      }
+    public void setValue(Double value) {
+        this.value = value;
+    }
 
-      @Override
-      public String toString() {
-            return "Kod='" + code + '\'' +
-                    ", Nazwa='" + name + '\'' +
-                    ", Wartość=" + value +
-                    '}';
-
-      }
+    @Override
+    public String toString() {
+        return "Kod='" + code + '\'' +
+                ", Nazwa='" + name + '\'' +
+                ", Wartość=" + value +
+                '}';
+    }
 }
-

@@ -1,27 +1,24 @@
 package isa.com;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-
 
 public class JSONReader {
 
     private String pathFile;
 
-    public String getPathFile() {
-        return pathFile;
-    }
-
     public void setPathFile(String pathFile) {
         this.pathFile = pathFile;
     }
 
-    public JSONObject fileReader() {
+    public JSONObject fileReader() { //throws FileNotFoundException, JSONException
         String jsonData = "";
         BufferedReader br = null;
         try {
@@ -68,18 +65,4 @@ public class JSONReader {
         }
         return targetCurrencyList;
     }
-
-
-
-
-
-//
-
-
-    }
-
-
-
-
-
-
+}

@@ -1,8 +1,6 @@
 package isa.com;
 
-
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -21,42 +19,50 @@ public class UserConsol {
 
         boolean quit = false;
         do {
-            System.out.println("\nPRZELICZNIK WALUT\nWybierz jedną z dostępnych opcji\n" +
-                    "1. Wczytaj plik z walutami\n2. Przelicz wybrane waluty\n3. Wyjście z programu\n");
-            Integer userChoise = Integer.parseInt(scanner.nextLine());
+            try {
+                System.out.println("\nPRZELICZNIK WALUT\nWybierz jedną z dostępnych opcji\n" +
+                        "1. Wczytaj plik z walutami\n2. Przelicz wybrane waluty\n3. Wyjście z programu\n");
+                Integer userChoise = Integer.parseInt(scanner.nextLine());
 
-            switch (userChoise) {
-                case READ_FILE:
-                    System.out.println("Wczytaj plik z walutami\n\nPodaj ścieżkę pliku");
-                    JSONReader jsonReader = new JSONReader();
-                    jsonReader.setPathFile(scanner.nextLine());
-                    baseCurrency = jsonReader.setBaseCurrencyValues(jsonReader.fileReader());
-                    targetCurrencyList = jsonReader.setTargetCurrencyValues(jsonReader.fileReader());
-                    System.out.println("Plik został wczytany\n");
-                    System.out.println("Waluta podstawowa: " + baseCurrency + "\n");
-                    System.out.println("Inne waluty: \n");
-                    for (TargetCurrency e:targetCurrencyList) {
-                        System.out.println(e);
-                    }
-                    break;
-                case CALCULATE:
-                    System.out.println("Dostępne waluty: \n");
-                    for (TargetCurrency e:targetCurrencyList){
-                        System.out.println(e.getCode() + " - " + e.getName());
-                    }
-                    System.out.println("\n Podaj kwote, którą chcesz przeliczyć");
-                    amount = Double.parseDouble(scanner.nextLine());
-                    System.out.println("\n Wybierz walute, którą chcesz otrzymać (np.USD): ");
-                    chosenCurrency = scanner.nextLine();
-                    CurrencyCalculator calc = new CurrencyCalculator(baseCurrency, filtrList(), amount);
-                    System.out.println("Przeliczona wartość w wybranej walucie to " + calc.convertCurrency());
-                    break;
-                case EXIT:
-                    quit = true;
-                    break;
+                switch (userChoise) {
+                    case READ_FILE:
+                        System.out.println("Wczytaj plik z walutami\n\nPodaj ścieżkę pliku");
+                        JSONReader jsonReader = new JSONReader();
+                        jsonReader.setPathFile(scanner.nextLine());
+                        baseCurrency = jsonReader.setBaseCurrencyValues(jsonReader.fileReader());
+                        targetCurrencyList = jsonReader.setTargetCurrencyValues(jsonReader.fileReader());
+                        System.out.println("Plik został wczytany\n");
+                        System.out.println("Waluta podstawowa: " + baseCurrency + "\n");
+                        System.out.println("Inne waluty: \n");
+                        for (TargetCurrency e : targetCurrencyList) {
+                            System.out.println(e);
+                        }
+                        break;
+                    case CALCULATE:
+                        System.out.println("Dostępne waluty: \n");
+                        for (TargetCurrency e : targetCurrencyList) {
+                            System.out.println(e.getCode() + " - " + e.getName());
+                        }
+                        System.out.println("\n Podaj kwote, którą chcesz przeliczyć");
+                        amount = Double.parseDouble(scanner.nextLine());
+                        System.out.println("\n Wybierz walute, którą chcesz otrzymać (np.USD): ");
+                        chosenCurrency = scanner.nextLine();
+                        CurrencyCalculator calc = new CurrencyCalculator(baseCurrency, filtrList(), amount);
+                        System.out.println("Przeliczona wartość w wybranej walucie to " + calc.convertCurrency());
+                        break;
+                    case EXIT:
+                        quit = true;
+                        break;
+                    default:
+                        System.out.println("Wybrana opcja nie istnieje. Spróbuj ponownie");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Wybrana opcja nie istnieje. Spróbuj ponownie");
+            } catch (NullPointerException e) {
+                System.out.println("Brak danych do obliczeń. Wczytaj plik");
             }
-
-        }   while (!quit) ;
+        }
+        while (!quit);
     }
 
     public ArrayList<TargetCurrency> filtrList() {
@@ -66,13 +72,4 @@ public class UserConsol {
                 .collect(Collectors.toCollection(ArrayList::new));
         return filterList;
     }
-
 }
-
-
-
-
-   
-
-
-
