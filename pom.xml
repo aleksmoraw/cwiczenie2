@@ -3,10 +3,24 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>isa.com</groupId>
-  <artifactId>cwiczenie 2</artifactId>
+  <artifactId>cwiczenie2</artifactId>
   <version>1.0-SNAPSHOT</version>
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>isa.com.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
