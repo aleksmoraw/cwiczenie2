@@ -18,7 +18,7 @@ public class JSONReader {
         this.pathFile = pathFile;
     }
 
-    public JSONObject fileReader() throws FileNotFoundException, JSONException {
+    public JSONObject jsonFileReader() throws FileNotFoundException, JSONException {
         JSONObject obj = new JSONObject();
         String jsonData = "";
         BufferedReader br = null;

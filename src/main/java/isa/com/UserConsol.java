@@ -3,7 +3,6 @@ package isa.com;
 import org.json.JSONException;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -30,42 +29,10 @@ public class UserConsol {
 
                 switch (userChoise) {
                     case READ_FILE:
-                        System.out.println("Wczytaj plik z walutami\n");
-                        JSONReader jsonReader = new JSONReader();
-                        boolean isFileReadFine = false;
-                        while (!isFileReadFine) {
-                            System.out.println("Podaj sciezke pliku");
-                            jsonReader.setPathFile(scanner.nextLine());
-                            try {
-                                baseCurrency = jsonReader.setBaseCurrencyValues(jsonReader.fileReader());
-                                targetCurrencyList = jsonReader.setTargetCurrencyValues(jsonReader.fileReader());
-                                isFileReadFine = true;
-                            } catch (JSONException | FileNotFoundException e) {
-                            }
-                        }
-                        System.out.println("Plik został wczytany\n");
-                        System.out.println("Waluta podstawowa: " + baseCurrency + "\n");
-                        System.out.println("Inne waluty: \n");
-                        for (TargetCurrency e : targetCurrencyList) {
-                            System.out.println(e);
-                        }
+                        loadFileFromUser();
                         break;
                     case CALCULATE:
-                        System.out.println("Dostępne waluty: \n");
-                        for (TargetCurrency e : targetCurrencyList) {
-                            System.out.println(e.getCode() + " - " + e.getName());
-                        }
-                        System.out.println("\n Podaj kwote, którą chcesz przeliczyć");
-                        amount = Double.parseDouble(scanner.nextLine());
-                        System.out.println("\n Wybierz walute, którą chcesz otrzymać (np.USD): ");
-                        chosenCurrency = scanner.nextLine();
-                        try {
-                            CurrencyCalculator calc = new CurrencyCalculator(baseCurrency, filtrList(), amount);
-                            System.out.println("Przeliczona wartość w wybranej walucie to " + calc.convertCurrency());
-                        } catch (IndexOutOfBoundsException a) {
-                            System.out.println("Brak danych dla wybranej waluty. Spróbuj ponownie");
-                        }
-
+                        calculateCurrencyInLoadedFile();
                         break;
                     case EXIT:
                         quit = true;
@@ -80,6 +47,46 @@ public class UserConsol {
             }
         }
         while (!quit);
+    }
+
+    private void calculateCurrencyInLoadedFile() {
+        System.out.println("Dostępne waluty: \n");
+        for (TargetCurrency e : targetCurrencyList) {
+            System.out.println(e.getCode() + " - " + e.getName());
+        }
+        System.out.println("\n Podaj kwote, którą chcesz przeliczyć");
+        amount = Double.parseDouble(scanner.nextLine());
+        System.out.println("\n Wybierz walute, którą chcesz otrzymać (np.USD): ");
+        chosenCurrency = scanner.nextLine();
+        try {
+            CurrencyCalculator calc = new CurrencyCalculator(baseCurrency, filtrList(), amount);
+            System.out.println("Przeliczona wartość w wybranej walucie to " + calc.convertCurrency());
+        } catch (IndexOutOfBoundsException a) {
+            System.out.println("Brak danych dla wybranej waluty. Spróbuj ponownie");
+        }
+    }
+
+    private void loadFileFromUser() {
+        System.out.println("Wczytaj plik z walutami\n");
+        JSONReader jsonReader = new JSONReader();
+        boolean isFileReadFine = false;
+        while (!isFileReadFine) {
+            System.out.println("Podaj sciezke pliku");
+            jsonReader.setPathFile(scanner.nextLine());
+            try {
+                baseCurrency = jsonReader.setBaseCurrencyValues(jsonReader.jsonFileReader());
+                targetCurrencyList = jsonReader.setTargetCurrencyValues(jsonReader.jsonFileReader());
+                isFileReadFine = true;
+            } catch (JSONException | FileNotFoundException e) {
+            }
+        }
+        System.out.println("Plik został wczytany\n");
+        System.out.println("Waluta podstawowa: " + baseCurrency + "\n");
+        System.out.println("Inne waluty: \n");
+        for (TargetCurrency e : targetCurrencyList) {
+            System.out.println(e);
+        }
+        return;
     }
 
     public ArrayList<TargetCurrency> filtrList() {
