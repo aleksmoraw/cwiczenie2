@@ -47,8 +47,13 @@ public class UserConsol {
                         amount = Double.parseDouble(scanner.nextLine());
                         System.out.println("\n Wybierz walute, którą chcesz otrzymać (np.USD): ");
                         chosenCurrency = scanner.nextLine();
-                        CurrencyCalculator calc = new CurrencyCalculator(baseCurrency, filtrList(), amount);
-                        System.out.println("Przeliczona wartość w wybranej walucie to " + calc.convertCurrency());
+                        try {
+                            CurrencyCalculator calc = new CurrencyCalculator(baseCurrency, filtrList(), amount);
+                            System.out.println("Przeliczona wartość w wybranej walucie to " + calc.convertCurrency());
+                        } catch (IndexOutOfBoundsException a) {
+                            System.out.println("Brak danych dla wybranej waluty. Spróbuj ponownie");
+                        }
+
                         break;
                     case EXIT:
                         quit = true;
