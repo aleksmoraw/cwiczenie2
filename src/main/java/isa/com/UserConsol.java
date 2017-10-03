@@ -1,5 +1,9 @@
 package isa.com;
 
+import org.json.JSONException;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -26,11 +30,19 @@ public class UserConsol {
 
                 switch (userChoise) {
                     case READ_FILE:
-                        System.out.println("Wczytaj plik z walutami\n\nPodaj ścieżkę pliku");
+                        System.out.println("Wczytaj plik z walutami\n");
                         JSONReader jsonReader = new JSONReader();
-                        jsonReader.setPathFile(scanner.nextLine());
-                        baseCurrency = jsonReader.setBaseCurrencyValues(jsonReader.fileReader());
-                        targetCurrencyList = jsonReader.setTargetCurrencyValues(jsonReader.fileReader());
+                        boolean isFileReadFine = false;
+                        while (!isFileReadFine) {
+                            System.out.println("Podaj sciezke pliku");
+                            jsonReader.setPathFile(scanner.nextLine());
+                            try {
+                                baseCurrency = jsonReader.setBaseCurrencyValues(jsonReader.fileReader());
+                                targetCurrencyList = jsonReader.setTargetCurrencyValues(jsonReader.fileReader());
+                                isFileReadFine = true;
+                            } catch (JSONException | FileNotFoundException e) {
+                            }
+                        }
                         System.out.println("Plik został wczytany\n");
                         System.out.println("Waluta podstawowa: " + baseCurrency + "\n");
                         System.out.println("Inne waluty: \n");

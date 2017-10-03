@@ -18,7 +18,8 @@ public class JSONReader {
         this.pathFile = pathFile;
     }
 
-    public JSONObject fileReader() { //throws FileNotFoundException, JSONException
+    public JSONObject fileReader() throws FileNotFoundException, JSONException {
+        JSONObject obj = new JSONObject();
         String jsonData = "";
         BufferedReader br = null;
         try {
@@ -28,7 +29,7 @@ public class JSONReader {
                 jsonData += line + "\n";
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Brak pliku\n");
         } finally {
             try {
                 if (br != null)
@@ -37,7 +38,12 @@ public class JSONReader {
                 ex.printStackTrace();
             }
         }
-        JSONObject obj = new JSONObject(jsonData);
+
+        try {
+            obj = new JSONObject(jsonData);
+        } catch (JSONException j) {
+
+        }
         return obj;
     }
 
