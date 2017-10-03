@@ -12,3 +12,5 @@ Program przelicza wartosci z waluty oznaczonej w pliku jako waluta bazowa, na wa
 
 Uruchamianie
 Program uruchamia sie w consoli, po wpisaniu komendy java -jar cwiczenie2-1.0-SNAPSHOT-jar-with-dependencies.jar.
+Sciezka do przykladowego pliku w formacie json: cwiczenie2/src/main/resources/currencies.json.
+
